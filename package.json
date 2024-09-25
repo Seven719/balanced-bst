@@ -1,0 +1,20 @@
+{
+  "name": "balanced-bst",
+  "version": "1.0.0",
+  "description": "balanced binary search tree",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "balanced",
+    "binary",
+    "search",
+    "tree",
+    "bst",
+    "bbst"
+  ],
+  "author": "Iulian Nichifor",
+  "license": "MIT",
+  "type": "module"
+}
