@@ -1,5 +1,6 @@
 export default class Tree {
   constructor(array) {
-    this.root = this.buildTree(array);
+    const sortedArray = [...new Set(array)].sort((a, b) => a - b);
+    this.root = this.buildTree(sortedArray);
   }
 }
