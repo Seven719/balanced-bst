@@ -89,4 +89,27 @@ export default class Tree {
       if (currentNode.right !== null) queue.push(currentNode.right);
     }
   }
+
+  levelOrderRecursion(callback) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required");
+    }
+
+    if (this.root === null) return;
+    this._traverseLevel([this.root], callback);
+  }
+
+  _traverseLevel(level, callback) {
+    if (level.length === 0) return;
+
+    const nextLevel = [];
+
+    for (const node of level) {
+      callback(node);
+      if (node.left) nextLevel.push(node.left);
+      if (node.right) nextLevel.push(node.right);
+    }
+
+    this._traverseLevel(nextLevel, callback);
+  }
 }
