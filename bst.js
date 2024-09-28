@@ -127,4 +127,19 @@ export default class Tree {
       this._inOrderTraversal(node.right, callback);
     }
   }
+
+  preOrder(callback) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required");
+    }
+    this._preOrderTraversal(this.root, callback);
+  }
+
+  _preOrderTraversal(node, callback) {
+    if (node) {
+      callback(node);
+      this._preOrderTraversal(node.left, callback);
+      this._preOrderTraversal(node.right, callback);
+    }
+  }
 }
