@@ -112,4 +112,19 @@ export default class Tree {
 
     this._traverseLevel(nextLevel, callback);
   }
+
+  inOrder(callback) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required");
+    }
+    this._inOrderTraversal(this.root, callback);
+  }
+
+  _inOrderTraversal(node, callback) {
+    if (node) {
+      this._inOrderTraversal(node.left, callback);
+      callback(node);
+      this._inOrderTraversal(node.right, callback);
+    }
+  }
 }
