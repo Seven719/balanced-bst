@@ -199,4 +199,10 @@ export default class Tree {
       this.isBalanced(node.right)
     );
   }
+
+  rebalance() {
+    const elements = [];
+    this.inOrder((node) => elements.push(node.data));
+    this.root = this.buildTree(elements);
+  }
 }
