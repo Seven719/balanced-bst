@@ -166,4 +166,22 @@ export default class Tree {
 
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  depth(node) {
+    if (node === null || this.root === null) return -1;
+
+    let current = this.root;
+    let depth = 0;
+
+    while (current !== null && current !== node) {
+      if (node.data < current.data) {
+        current = current.left;
+      } else if (node.data > current.data) {
+        current = current.right;
+      }
+      depth++;
+    }
+
+    return current === node ? depth : -1;
+  }
 }
